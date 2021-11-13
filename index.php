@@ -57,39 +57,38 @@ if (isset($_GET[$parametr])) {
   echo 'Тут передали параметр: ' . $_GET[$parametr];
 }
 
-?>
-
-<?php
 if ($type == 0) {
-?>
-
-  <main class="main container">
-    <form action="index.php" method="get">
-      <input type="hidden" name="data">
-      <?php echo $text ?> <input type=" text" name="<?php echo $parametr ?>" /><br>
-      <input class="btn" type="submit" value="Ответить" />
-    </form>
-  </main>
-
-<?php
-} else if ($type == 1) {
-?>
-
-  <main class="main container">
-    <form action="index.php" method="get">
-      <input type="hidden" name="data">
-      <?php echo $text ?> <input type=" text" name="<?php echo $parametr ?>" /><br>
-      <input class="btn" type="submit" value="Ответить" />
-    </form>
-  </main>
-
-<?php
+  type0($text, $parametr);
 } else if ($type == 2) {
+  type2($text, $parametr, $answer1, $answer2);
+} else {
+  type4($text, $parametr, $answer1, $answer2, $answer3, $answer4);
+}
+
+
 ?>
 
+<?php
+function type0($text, $parametr)
+{
+?>
+  <main class="main container">
+    <form action="index.php" method="get">
+      <?php echo $text ?> <input type=" text" name="<?php echo $parametr ?>" /><br>
+      <input class="btn" type="submit" value="Ответить" />
+    </form>
+  </main>
+
+<?php
+}
+?>
+
+<?php
+function type2($text, $parametr, $answer1, $answer2)
+{
+?>
   <main class="main container">
     <form action="index.php" method=" get">
-      <input type="hidden" name="data" value="<?php echo $data; ?>">
       <label for=""><?php echo $text; ?></label><br>
       <input type="radio" name="<?php echo $parametr ?>" value="<?php echo $answer1 ?>" /><?php echo $answer1 ?> <br>
       <input type="radio" name="<?php echo $parametr ?>" value="<?php echo $answer2 ?>" /><?php echo $answer2 ?> <br>
@@ -98,12 +97,15 @@ if ($type == 0) {
   </main>
 
 <?php
-} else if ($type == 4) {
+}
 ?>
 
+<?php
+function type4($text, $parametr, $answer1, $answer2, $answer3, $answer4)
+{
+?>
   <main class="main container">
     <form action="index.php" method=" get">
-      <input type="hidden" name="data" value="<?php echo $data; ?>">
       <label for=""><?php echo $text; ?></label><br>
       <input type="radio" name="<?php echo $parametr ?>" value="<?php echo $answer1 ?>" /><?php echo $answer1 ?> <br>
       <input type="radio" name="<?php echo $parametr ?>" value="<?php echo $answer2 ?>" /><?php echo $answer2 ?> <br>
@@ -112,10 +114,10 @@ if ($type == 0) {
       <input class="btn" type="submit" value="Ответить" />
     </form>
   </main>
+
 <?php
 }
 ?>
-
 
 
 <?php
