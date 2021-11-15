@@ -18,6 +18,16 @@ function dump2($elem, $text = '')
   echo '</br>';
 }
 
+function isEmpty($elem)
+{
+  if ($elem == "") {
+    $text = "Пусто";
+  } else {
+    $text = $elem;
+  }
+  return $text;
+}
+
 // dump($user);
 
 // $questions = R::loadAll('questions', array(1, 2, 3));
@@ -30,7 +40,6 @@ function dump2($elem, $text = '')
 
 // таким образом получаем наш ввод
 if (isset($_GET['param_name'])) {
-
   $vvod = $_GET['param_name'];
   $vvod_value = $_GET[$vvod];
 
@@ -40,6 +49,7 @@ if (isset($_GET['param_name'])) {
   // dump2($next_question, "Следующий вопрос:");
 
   // узнаем  следующий вопрос по таблице правил 
+
   $next_rule = R::load('rules', $next_question);
 
   if (!empty($next_rule->value_str)) {
@@ -47,13 +57,14 @@ if (isset($_GET['param_name'])) {
       $next_question = $next_rule->true_quest;
     } else {
       $next_question = $next_rule->false_quest;
-      // echo "Следующий вопрос: " . $next_question;
+      // echo "Текущий вопрос: " . $next_question;
     }
   } else { // если это число
     if ($next_rule->value_int == $vvod_value) {
       $next_question = $next_rule->true_quest;
     } else {
       $next_question = $next_rule->false_quest;
+      // echo "Текущий вопрос: " . $next_question;
     }
   }
 
@@ -63,12 +74,25 @@ if (isset($_GET['param_name'])) {
 
   $text = $first_qestion->text;
   $type = $first_qestion->type;
-  $answer1 = $first_qestion->answer1;
-  $answer2 = $first_qestion->answer2;
-  $answer3 = $first_qestion->answer3;
-  $answer4 = $first_qestion->answer4;
+  $answer1 = isEmpty($first_qestion->answer1);
+  $answer2 = isEmpty($first_qestion->answer2);
+  $answer3 = isEmpty($first_qestion->answer3);
+  $answer4 = isEmpty($first_qestion->answer4);
   $parametr = $first_qestion->parametr;
   $id_rule = $first_qestion->id_rule;
+
+  dump2($id, "Наш текущий вопрос:");
+  dump2($text);
+  echo 'Тип вопроса: ';
+  dump2($type);
+
+  dump2($answer1);
+  dump2($answer2);
+  dump2($answer3);
+  dump2($answer4);
+
+  dump2($parametr);
+  dump2($id_rule, "id_rule:");
 
   ///////////////
 } else {
@@ -110,7 +134,7 @@ if ($type == 0) {
 } else if ($type == 2) {
   type2($text, $parametr, $answer1, $answer2, $id_rule);
 } else if ($type == 3) {
-  type2($text, $parametr, $answer1, $answer2, $answer3, $id_rule);
+  type3($text, $parametr, $answer1, $answer2, $answer3, $id_rule);
 } else {
   type4($text, $parametr, $answer1, $answer2, $answer3, $answer4, $id_rule);
 }
