@@ -49,9 +49,7 @@ if (isset($_GET['param_name'])) {
   // dump2($next_question, "Следующий вопрос:");
 
   // узнаем  следующий вопрос по таблице правил 
-
-  $next_rule = R::load('rules', $next_question);
-
+  $next_rule = R::findOne('rules', 'id_rule = ?', [$next_question]);
   if (!empty($next_rule->value_str)) {
     if ($next_rule->value_str == $vvod_value) {
       $next_question = $next_rule->true_quest;
