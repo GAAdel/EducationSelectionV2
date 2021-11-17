@@ -2,6 +2,18 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
 input {
   margin-bottom: 20px;
   margin-right: 20px;
@@ -20,6 +32,8 @@ p {
   max-width: 1300px;
   margin: auto;
   font-size: 20px;
+  padding-left: 250px;
+  padding-right: 250px;
 }
 
 .btn {
@@ -29,4 +43,16 @@ p {
   border-radius: 20px;
   text-align: center;
   padding: 6px 25px 6px 25px;
+  background-color: rgb(16, 192, 16);
+  color: white;
+
+  // &:hover {
+  //   color: green;
+  // }
+}
+
+.qwe {
+  transform: scale(1.5);
+  opacity: 0.9;
+  cursor: pointer;
 }
