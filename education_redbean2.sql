@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 17 2021 г., 19:52
+-- Время создания: Ноя 18 2021 г., 08:42
 -- Версия сервера: 10.3.16-MariaDB
 -- Версия PHP: 7.3.6
 
@@ -55,7 +55,18 @@ CREATE TABLE `answers` (
 --
 
 INSERT INTO `answers` (`id`, `age`, `is_licei`, `stepen`, `is_colledge`, `gender`, `forma`, `sovet`, `forma2`, `subjects`, `vstypit`, `naprav`, `city`, `is_home`, `is_active`, `is_lgoti`, `is_budget`, `budget`, `ball`) VALUES
-(1, '119', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `objects`
+--
+
+CREATE TABLE `objects` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -146,6 +157,12 @@ ALTER TABLE `answers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `objects`
+--
+ALTER TABLE `objects`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `questions`
 --
 ALTER TABLE `questions`
@@ -166,6 +183,12 @@ ALTER TABLE `rules`
 --
 ALTER TABLE `answers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `objects`
+--
+ALTER TABLE `objects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `questions`
