@@ -147,63 +147,51 @@ $my_type = $type;
   // dump2($my_is_home);
   // dump2($my_type);
 
-
-$objects = R::load('objects', 1);
-// echo count(R::inspect('objects')); // количество столбцов
-
 $vyzi = "";
+  for ($j = 1; $j <= (R::count( 'objects')); $j++) {
+    $objects = R::load('objects', $j);
 
-for ($i = 1; $i <= (R::count( 'objects')); $i++) {
-  $count = 0;
-  $stepen = $objects->stepen;
-  $naprav = $objects->naprav;
-  $city = $objects->city;
-  $is_home = $objects->is_home;
-  $type = $objects->type;
-  // dump2($stepen);
-  // dump2($naprav);
-  // dump2($city);
-  // dump2($is_home);
-  // dump2($type);
+    // тут проверка параметров пользователя
+    for ($i = 1; $i <= (R::count( 'objects')); $i++) {
+      $count = 0;
+      $stepen = $objects->stepen;
+      $naprav = $objects->naprav;
+      $city = $objects->city;
+      $is_home = $objects->is_home;
+      $type = $objects->type;
 
-  if ($my_stepen == $stepen) {
-    $count += 1;
+      // dump2($stepen);
+      // dump2($naprav);
+      // dump2($city);
+      // dump2($is_home);
+      // dump2($type);
+
+      if ($my_stepen == $stepen) {
+        $count += 1;
+      }
+
+      if ($my_naprav == $naprav) {
+        $count += 1;
+      }
+
+      if ($my_city == $city) {
+        $count += 1;
+      }
+
+      if ($my_is_home == $is_home) {
+        $count += 1;
+      }
+
+      if ($my_type == $type) {
+        $count += 1;
+      }
+
+    }
+
+    if ($count == 5) {
+      $vyzi = $vyzi . "- " .$objects->name . "<br>";
+    } 
   }
-
-  if ($my_naprav == $naprav) {
-    $count += 1;
-  }
-
-  if ($my_city == $city) {
-    $count += 1;
-  }
-
-  if ($my_is_home == $is_home) {
-    $count += 1;
-  }
-
-  if ($my_type == $type) {
-    $count += 1;
-  }
-
-  if ($count == 5) {
-    $vyzi = $vyzi . "- " .$objects->name . "<br>";
-  } 
-}
-
-
-// for ($i = 0; $i < count(R::inspect('objects')); $i++) { 
-//   $count = 0;
-//   foreach ($Person as $item => $value) {
-//     if ($Person["$item"] == $objects[$i]["$item"]) {
-//       $count += 1;
-//     }
-//   }
-//   if ($count == 10) {
-//     $vyzi = $vyzi . "- " .$mas_universityS["$i"]["name"] . "<br>";
-//   }
-// }
-
 
 ?>
 
