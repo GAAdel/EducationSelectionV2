@@ -28,10 +28,39 @@ function isEmpty($elem)
 
 
 $answers = R::load('answers', 1);
-foreach ($answers as $answer) {
-  if (!empty($answer))
-  dump2($answer);
+$keys = ["age", "is_licei", "stepen", "is_colledge", "gender", "forma", "sovet", "forma2",
+"subjects", "vstypit", "naprav", "city", "is_home", "is_active", "is_lgoti", "is_budget", "budget", "ball"];
+
+$rules = R::findAll('simple_rules');
+
+// foreach ($answers as $answer) {
+//   if (isEmpty($answer)) {
+
+//     dump2($answer);
+//   }
+// }
+
+
+foreach ($keys as $key) {
+  if (isEmpty($answers[$key])) {
+    foreach ($rules as $rule) {
+      if ($key == $rule->if_atr) {
+        if ($answers[$key] == $rule->if_value){
+          $rule->used = "true";
+          R::store($rule);
+        }
+      }
+    }
+    // dump2($answers[$key]);
+  }
 }
+
+
+// $rules = R::findAll('simple_rules');
+// foreach ($rules as $rule) {
+//   dump2($rule);
+// }
+
 
 // for ($i = 1; $i <= (R::count( 'simple_rules')); $i++) {
 //   $rules = R::load('simple_rules', $i);
