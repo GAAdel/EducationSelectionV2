@@ -28,11 +28,17 @@ function isEmpty($elem)
 
 
 $answers = R::load('answers', 1);
+foreach ($answers as $answer) {
+  if (!empty($answer))
+  dump2($answer);
+}
 
-for ()
-
-$rules = R::load('simple_rules', 1);
-
+// for ($i = 1; $i <= (R::count( 'simple_rules')); $i++) {
+//   $rules = R::load('simple_rules', $i);
+//   foreach ($rules as $rule) {
+//     if ($answers)
+//   }
+// }
 
 
 
