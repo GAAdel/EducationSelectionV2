@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 01 2021 г., 09:32
+-- Время создания: Дек 01 2021 г., 15:44
 -- Версия сервера: 10.3.16-MariaDB
 -- Версия PHP: 7.3.6
 
@@ -55,7 +55,7 @@ CREATE TABLE `answers` (
 --
 
 INSERT INTO `answers` (`id`, `age`, `is_licei`, `stepen`, `is_colledge`, `gender`, `forma`, `sovet`, `forma2`, `subjects`, `vstypit`, `naprav`, `city`, `is_home`, `is_active`, `is_lgoti`, `is_budget`, `budget`, `ball`) VALUES
-(1, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, '35', NULL, 'Аспирантура', NULL, NULL, NULL, 'Да', NULL, NULL, 'Да', 'Информатика', 'Санкт-Петербург', 'Да', 'Да', 'Да', 'Да', NULL, '200');
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,18 @@ CREATE TABLE `complex_rules` (
 --
 
 INSERT INTO `complex_rules` (`id`, `if1_atr`, `if1_value`, `if2_atr`, `if2_value`, `then_atr`, `then_value`, `used`) VALUES
-(1, 'is_colledge', 'Да', 'city', 'Москва', 'type2', 'Московский Колледж', 'false');
+(1, 'age', '35', 'stepen', 'Аспирантура', 'forma', 'Очная', 'true');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `objects`
+--
+
+CREATE TABLE `objects` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -180,12 +191,12 @@ CREATE TABLE `simple_rules` (
 --
 
 INSERT INTO `simple_rules` (`id`, `if_atr`, `if_value`, `then_atr`, `then_value`, `used`) VALUES
-(1, 'age', '18', 'age', 'Да', 'false'),
+(1, 'age', '18', 'age', 'Да', 'true'),
 (2, 'is_licei', 'Да', 'type', 'Лицей/Училище', 'false'),
 (3, 'stepen', 'Бакалавриат', 'stepen', 'Бакалавриат', 'false'),
 (4, 'stepen', 'Специалитет', 'stepen', 'Специалитет', 'false'),
 (5, 'stepen', 'Магистратура', 'stepen', 'Магистратура', 'false'),
-(6, 'stepen', 'Аспирантура', 'stepen', 'Аспирантура', 'false'),
+(6, 'stepen', 'Аспирантура', 'stepen', 'Аспирантура', 'true'),
 (7, 'is_colledge', 'Да', 'type', 'Колледж', 'false'),
 (8, 'is_colledge', 'Нет', 'type', 'Техникум', 'false'),
 (9, 'gender', 'Муж', 'gender', 'gender', 'false'),
@@ -193,7 +204,7 @@ INSERT INTO `simple_rules` (`id`, `if_atr`, `if_value`, `then_atr`, `then_value`
 (11, 'forma', 'Очная', 'forma', 'forma', 'false'),
 (12, 'forma', 'Заочная', 'forma', 'Заочная', 'false'),
 (13, 'forma', 'Очно-заочная', 'forma', 'Очно-заочная', 'false'),
-(14, 'sovet', 'Да', 'sovet', 'Да', 'false'),
+(14, 'sovet', 'Да', 'sovet', 'Да', 'true'),
 (15, 'sovet', 'Нет', 'sovet', 'Нет', 'false'),
 (16, 'forma2', 'Очная', 'forma', 'Очная', 'false'),
 (17, 'forma2', 'Заочная', 'forma', 'Заочная', 'false'),
@@ -202,24 +213,24 @@ INSERT INTO `simple_rules` (`id`, `if_atr`, `if_value`, `then_atr`, `then_value`
 (20, 'subjects', 'Физика/Математика', 'subjects', 'Физика/Математика', 'false'),
 (21, 'subjects', 'Биология/Химия', 'subjects', 'Биология/Химия', 'false'),
 (22, 'subjects', 'Обществознание/История', 'subjects', 'Обществознание/История', 'false'),
-(23, 'vstypit', 'Да', 'vstypit', 'Да', 'false'),
+(23, 'vstypit', 'Да', 'vstypit', 'Да', 'true'),
 (24, 'vstypit', 'Нет', 'vstypit', 'Нет', 'false'),
-(25, 'naprav', 'Информатика', 'naprav', 'Информатика', 'false'),
+(25, 'naprav', 'Информатика', 'naprav', 'Информатика', 'true'),
 (26, 'naprav', 'Медицина', 'naprav', 'Медицина', 'false'),
 (27, 'naprav', 'Строительство', 'naprav', 'Строительство', 'false'),
-(28, 'naprav', 'Журналистика', 'naprav', 'Журналистика', 'false'),
-(32, 'city', 'Москва', 'city', 'Москва', 'false'),
-(33, 'city', 'Санкт-Петербург', 'city', 'Санкт-Петербург', 'false'),
-(34, 'city', 'Казань', 'city', 'Казань', 'false'),
-(35, 'is_home', 'Да', 'is_home', 'Да', 'false'),
+(28, 'naprav', 'Журналистика', 'naprav', 'Журналистика', 'true'),
+(32, 'city', 'Москва', 'city', 'Москва', 'true'),
+(33, 'city', 'Санкт-Петербург', 'city', 'Санкт-Петербург', 'true'),
+(34, 'city', 'Казань', 'city', 'Казань', 'true'),
+(35, 'is_home', 'Да', 'is_home', 'Да', 'true'),
 (36, 'is_home', 'Нет', 'is_home', 'Нет', 'false'),
-(37, 'is_active', 'Да', 'is_active', 'Да', 'false'),
+(37, 'is_active', 'Да', 'is_active', 'Да', 'true'),
 (38, 'is_active', 'Нет', 'is_active', 'Нет', 'false'),
-(39, 'is_lgoti', 'Да', 'is_lgoti', 'Да', 'false'),
+(39, 'is_lgoti', 'Да', 'is_lgoti', 'Да', 'true'),
 (40, 'is_lgoti', 'Нет', 'is_lgoti', 'Нет', 'false'),
-(41, 'is_budget', 'Да', 'is_budget', 'Да', 'false'),
+(41, 'is_budget', 'Да', 'is_budget', 'Да', 'true'),
 (43, 'budget', '200', 'budget', '200', 'false'),
-(45, 'ball', '200', 'ball', '200', 'false'),
+(45, 'ball', '200', 'ball', '200', 'true'),
 (46, 'is_budget', 'Нет', 'is_budget', 'Нет', 'false');
 
 --
@@ -236,6 +247,12 @@ ALTER TABLE `answers`
 -- Индексы таблицы `complex_rules`
 --
 ALTER TABLE `complex_rules`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `objects`
+--
+ALTER TABLE `objects`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -271,6 +288,12 @@ ALTER TABLE `answers`
 --
 ALTER TABLE `complex_rules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `objects`
+--
+ALTER TABLE `objects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `questions`

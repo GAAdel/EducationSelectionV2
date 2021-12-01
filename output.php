@@ -136,7 +136,7 @@ foreach ($keys as $key) {
         foreach ($keys as $key) {
           if ($key == $rule->if2_atr) {
             $val2 = $answers[$key];    ///
-            if ($val1 == $rule->if1_value && $val2 == $rule->if2_value ) {
+            if (($val1 == $rule->if1_value || $val1 <= $rule->if1_value) && $val2 == $rule->if2_value ) {
               $rule->used = "true";
               R::store($rule);
             }
@@ -149,14 +149,13 @@ foreach ($keys as $key) {
 
 foreach ($rules2 as $rule) {
   if ($rule->used <> "false") {
-
-    if ($rule->then_atr == "type2") {
-      $type2 =  $rule->then_value;        
+    if ($rule->then_atr == "forma") {
+      $forma =  $rule->then_value;        
     }
   }
 }
 
-// dump2($type2);
+dump2($forma);
 
 
 

@@ -35,6 +35,12 @@ foreach ($rules as $rule) {
   R::store($rule);
 }   
 
+$rules2 = R::findAll('complex_rules');
+foreach ($rules2 as $rule) {
+  $rule->used = "false";
+  R::store($rule);
+}  
+
 
 ?>
 
