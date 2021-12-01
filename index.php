@@ -28,6 +28,14 @@ function isEmpty($elem)
   }
   return $text;
 }
+
+$rules = R::findAll('simple_rules');
+foreach ($rules as $rule) {
+  $rule->used = "false";
+  R::store($rule);
+}   
+
+
 ?>
 
 <?php
