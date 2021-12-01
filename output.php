@@ -47,6 +47,23 @@ foreach ($keys as $key) {
   }
 }
 
+$age = "";
+$type = "";
+$stepen = "";
+$gender = "";
+$forma = "";
+$sovet = "";
+$subjects = "";
+$vstypit = "";
+$naprav = "";
+$city = "";
+$is_home = "";
+$is_active = "";
+$is_lgoti = "";
+$is_budget = "";
+$budget = "";
+$ball = "";
+
 foreach ($rules as $rule) {
   if ($rule->used <> "false") {
 
@@ -155,7 +172,55 @@ foreach ($rules2 as $rule) {
   }
 }
 
-dump2($forma);
+
+if(isEmpty($age)) {
+  dump2($age);
+}
+if(isEmpty($type)) {
+  dump2($type);
+}
+if(isEmpty($stepen)) {
+  dump2($stepen);
+}
+if(isEmpty($gender)) {
+  dump2($gender);
+}
+if(isEmpty($forma)) {
+  dump2($forma);
+}
+if(isEmpty($sovet)) {
+  dump2($sovet);
+}
+if(isEmpty($subjects)) {
+  dump2($subjects);
+}
+if(isEmpty($vstypit)) {
+  dump2($vstypit);
+}
+if(isEmpty($naprav)) {
+  dump2($naprav);
+}
+if(isEmpty($city)) {
+  dump2($city);
+}
+if(isEmpty($is_home)) {
+  dump2($is_home);
+}
+if(isEmpty($is_active)) {
+  dump2($is_active);
+}
+if(isEmpty($is_lgoti)) {
+  dump2($is_lgoti);
+}
+if(isEmpty($is_budget)) {
+  dump2($is_budget);
+}
+if(isEmpty($budget)) {
+  dump2($budget);
+}
+if(isEmpty($ball)) {
+  dump2($ball);
+}
 
 
 
