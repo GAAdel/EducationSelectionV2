@@ -48,79 +48,6 @@ $is_budget = "";
 $budget = "";
 $ball = "";
 
-// echo "Наши введенные значения : <br>";
-
-// if(isEmpty($answers->age)) {
-//   dump2($answers->age, "age: ");
-// }
-// if(isEmpty($answers->is_licei)) {
-//   dump2($answers->is_licei, "is_licei: ");
-// }
-// if(isEmpty($answers->stepen)) {
-//   dump2($answers->stepen, "stepen: ");
-// }
-
-// if(isEmpty($answers->is_colledge)) {
-//   dump2($answers->is_colledge, "is_colledge: ");
-// }
-
-// if(isEmpty($answers->gender)) {
-//   dump2($answers->gender, "gender: ");
-// }
-
-// if(isEmpty($answers->forma)) {
-//   dump2($answers->forma, "forma: ");
-// }
-
-// if(isEmpty($answers->sovet)) {
-//   dump2($answers->sovet, "sovet: ");
-// }
-
-// if(isEmpty($answers->forma2)) {
-//   dump2($answers->forma2, "forma2: ");
-// }
-
-// if(isEmpty($answers->subjects)) {
-//   dump2($answers->subjects, "subjects: ");
-// }
-
-// if(isEmpty($answers->vstypit)) {
-//   dump2($answers->vstypit, "vstypit: ");
-// }
-
-// if(isEmpty($answers->naprav)) {
-//   dump2($answers->naprav, "naprav: ");
-// }
-
-// if(isEmpty($answers->city)) {
-//   dump2($answers->city, "city: ");
-// }
-
-// if(isEmpty($answers->is_home)) {
-//   dump2($answers->is_home, "is_home: ");
-// }
-
-// if(isEmpty($answers->is_active)) {
-//   dump2($answers->is_active, "is_active: ");
-// }
-
-// if(isEmpty($answers->is_lgoti)) {
-//   dump2($answers->is_lgoti, "is_lgoti: ");
-// }
-
-// if(isEmpty($answers->is_budget)) {
-//   dump2($answers->is_budget, "is_budget: ");
-// }
-
-// if(isEmpty($answers->budget)) {
-//   dump2($answers->budget, "budget: ");
-// }
-
-// if(isEmpty($answers->ball)) {
-//   dump2($answers->ball, "ball: ");
-// } 
-
-// echo "<br>";
 
 
 $rules = R::findAll('simple_rules');
@@ -253,66 +180,12 @@ foreach ($rules2 as $rule) {
 }
 
 
-// echo "Наши значения после правил: <br>";
-
-// if(isEmpty($age)) {
-//   dump2($age, "age: ");
-// }
-// if(isEmpty($type)) {
-//   dump2($type, "type: ");
-// }
-// if(isEmpty($stepen)) {
-//   dump2($stepen, "stepen: ");
-// }
-// if(isEmpty($gender)) {
-//   dump2($gender, "gender: ");
-// }
-// if(isEmpty($forma)) {
-//   dump2($forma, "forma: ");
-// }
-// if(isEmpty($sovet)) {
-//   dump2($sovet, "sovet: ");
-// }
-// if(isEmpty($subjects)) {
-//   dump2($subjects, "subjects: ");
-// }
-// if(isEmpty($vstypit)) {
-//   dump2($vstypit, "vstypit: ");
-// }
-// if(isEmpty($naprav)) {
-//   dump2($naprav, "naprav: ");
-// }
-// if(isEmpty($city)) {
-//   dump2($city, "city: ");
-// }
-// if(isEmpty($is_home)) {
-//   dump2($is_home, "is_home: ");
-// }
-// if(isEmpty($is_active)) {
-//   dump2($is_active, "is_active: ");
-// }
-// if(isEmpty($is_lgoti)) {
-//   dump2($is_lgoti, "is_lgoti: ");
-// }
-// if(isEmpty($is_budget)) {
-//   dump2($is_budget, "is_budget: ");
-// }
-// if(isEmpty($budget)) {
-//   dump2($budget, "budget: ");
-// }
-// if(isEmpty($ball)) {
-//   dump2($ball, "ball: ");
-// }
-// echo "<br>";
-
-
 $vyzi = "";
   for ($j = 1; $j <= (R::count( 'objects')); $j++) {
     $objects = R::load('objects', $j);
 
-    // тут проверка параметров пользователя
+
     for ($i = 1; $i <= (R::count( 'objects')); $i++) {
-      // dump2($i, "ИНДЕКС ");
       $count = 0;
       
       $object_type = $objects->type;
@@ -323,16 +196,6 @@ $vyzi = "";
       $object_is_active = $objects->is_active;
       $object_budget = $objects->budget;
       $object_ball = $objects->ball;
-
-      // echo "Свойства учебного зведения: <br>";
-      // dump2($object_type);
-      // dump2($object_forma);
-      // dump2($object_naprav);
-      // dump2($object_city);
-      // dump2($object_is_home);
-      // dump2($object_is_active);
-      // dump2($object_budget);
-      // dump2($object_ball);
 
       if ($object_type == $type) {
         $count += 1;
@@ -367,34 +230,11 @@ $vyzi = "";
       }
 
     }
-    // dump2("$count", "Количество совпадений: ");
+
     if ($count == 7 || $count == 8) {
       $vyzi = $vyzi . "- " .$objects->name . "<br>";
     } 
   }
-
-
-// foreach ($answers as $answer){
-//   echo $answer . '<br>';
-// }
-// dump2($answers->age);
-// dump2($answers->is_licei);
-// dump2($answers->stepen);
-// dump2($answers->is_colledge);
-// dump2($answers->gender);
-// dump2($answers->forma);
-// dump2($answers->sovet);
-// dump2($answers->forma2);
-// dump2($answers->subjects);
-// dump2($answers->vstypit);
-// dump2($answers->naprav);
-// dump2($answers->city);
-// dump2($answers->is_home);
-// dump2($answers->is_active);
-// dump2($answers->is_lgoti);
-// dump2($answers->is_budget);
-// dump2($answers->budget);
-// dump2($answers->ball);
 
 ?>
 

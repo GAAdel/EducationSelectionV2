@@ -32,10 +32,6 @@ function isEmpty($elem)
 ?>
 
 <?php
-// $answers = R::dispense('answers');
-// $answers->$vvod = $vvod_value;
-// R::store($answers);
-
 
 // таким образом получаем наш ввод
 if (isset($_GET['param_name'])) {
@@ -43,9 +39,7 @@ if (isset($_GET['param_name'])) {
   $vvod = $_GET['param_name'];
   $vvod_value = $_GET[$vvod];
 
-  // $answers = R::dispense('answers');
-  // $answers->$vvod = $vvod_value;
-  // R::store($answers);
+
 
   // запись ответов пользователя
   $answers = R::load('answers', 1);
@@ -53,9 +47,6 @@ if (isset($_GET['param_name'])) {
   R::store($answers);
 
   $next_question = $_GET['next_question'];
-
-  // dump2($vvod_value, " Значение которое вы ввели:");
-  // dump2($next_question, "Следующий вопрос:");
 
   // узнаем  следующий вопрос по таблице правил 
   $next_rule = R::findOne('rules', 'id_rule = ?', [$next_question]);
@@ -92,19 +83,6 @@ if (isset($_GET['param_name'])) {
   $parametr = $first_qestion->parametr;
   $id_rule = $first_qestion->id_rule;
 
-  // dump2($id, "Наш текущий вопрос:");
-  // dump2($text);
-  // echo 'Тип вопроса: ';
-  // dump2($type);
-  // dump2($answer1);
-  // dump2($answer2);
-  // dump2($answer3);
-  // dump2($answer4);
-
-  // dump2($parametr);
-  // dump2($id_rule, "id_rule:");
-
-  ///////////////
 } else {
 
   $id = 1;
