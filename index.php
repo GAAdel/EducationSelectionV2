@@ -28,6 +28,7 @@ function isEmpty($elem)
   }
   return $text;
 }
+
 ?>
 
 <?php
@@ -122,6 +123,21 @@ if (isset($_GET['param_name'])) {
   $answers->age = "";
   R::store($answers);
 
+
+
+
+$rules = R::findAll('simple_rules');
+foreach ($rules as $rule) {
+  $rule->used = "false";
+  R::store($rule);
+}   
+
+$rules2 = R::findAll('complex_rules');
+foreach ($rules2 as $rule) {
+  $rule->used = "false";
+  R::store($rule);
+}  
+
   
 }
 
@@ -186,7 +202,7 @@ function type3($text, $parametr, $answer1, $answer2, $answer3, $id_rule)
       <label for=""><?php echo $text; ?></label><br>
       <input type="radio" class="qwe" name="<?php echo $parametr ?>" value="<?php echo $answer1 ?>" checked="checked" /><?php echo $answer1 ?> <br>
       <input type="radio" class="qwe" name="<?php echo $parametr ?>" value="<?php echo $answer2 ?>" /><?php echo $answer2 ?> <br>
-      <input type="radio" class="qwe" name="<?php echo $parametr ?>" value="<?php echo $answer2 ?>" /><?php echo $answer3 ?> <br>
+      <input type="radio" class="qwe" name="<?php echo $parametr ?>" value="<?php echo $answer3 ?>" /><?php echo $answer3 ?> <br>
       <input class="btn" type="submit" value="Ответить" />
     </form>
   </main>
